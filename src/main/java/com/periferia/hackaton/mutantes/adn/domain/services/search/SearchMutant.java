@@ -26,7 +26,7 @@ public class SearchMutant {
             sumMatches = sumMatches + new SearchPositionDiagonalUp(dna,PositionEnum.RIGHT).numMatches();
             sumMatches = sumMatches + new SearchPositionDiagonalDown(dna,PositionEnum.LEFT).numMatches();
             sumMatches = sumMatches + new SearchPositionDiagonalDown(dna,PositionEnum.RIGHT).numMatches();
-            return sumMatches > 0;
+            return sumMatches > 1;
         };
     }
 }

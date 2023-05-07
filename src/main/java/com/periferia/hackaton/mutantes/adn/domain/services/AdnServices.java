@@ -33,7 +33,7 @@ public class AdnServices {
         float ratio;
         int mutants = repository.countMutants(true);
         int humans = repository.countMutants(false);
-        ratio = mutants != 0 ? ((float) mutants / humans) : 0;
+        ratio = humans != 0 ? ((float) mutants / humans) : 0;
         onResponseMutantStats.onCallback(humans,mutants,ratio);
     }
 
