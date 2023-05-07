@@ -9,11 +9,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class AdnDataSources implements AdnRepository {
 
-    private final AdnDao adnDao;
     @Autowired
-    public AdnDataSources(AdnDao adnDao){
-        this.adnDao = adnDao;
-    }
+    private AdnDao adnDao;
 
     @Override
     public void save(String chain, boolean isMutant) {

@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaAuditing
-@EnableJpaRepositories(basePackages = "com.mercadolibre.challenge.infraestructure.database.dao")
 @EntityScan(basePackages = "com.periferia.hackaton.mutantes.adn.infraestructure.database.models")
 public class AdnApplication {
 

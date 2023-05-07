@@ -60,14 +60,15 @@ jacocoTestReport {
 	beforeEvaluate {
 		getClassDirectories().from(files(classDirectories.files.collect {
 			fileTree(dir: it, exclude: [
-					'com/mercadolibre/challenge/infraestructure/rest/dto/*.class'
+					'com/periferia/hackaton/mutantes/adn/infraestructure/rest/dto/*.class',
+					'com/periferia/hackaton/mutantes/adn/infraestructure/config/*.class',
 			])
 		}))
 	}
 }
 
 jacoco {
-	toolVersion = "0.8.5"
+	toolVersion = "0.8.7"
 	reportsDir = (file("$buildDir/jacoco"))
 }
 
@@ -75,10 +76,13 @@ jacoco {
 jacocoTestCoverageVerification {
 	violationRules {
 		rule {
-			includes = ['com/mercadolibre/challenge/*']
+			includes = ['com/periferia/hackaton/mutantes/adn/*']
 			excludes = [
-					'com/mercadolibre/challenge/infraestructure/rest/dto/*',
-					'com/mercadolibre/challenge/infraestructure/rest/config/*',
+					'com/periferia/hackaton/mutantes/adn/infraestructure/rest/dto/*',
+					'com/periferia/hackaton/mutantes/adn/infraestructure/config/*',
+					'com/periferia/hackaton/mutantes/adn/domain/events/*',
+					'com/periferia/hackaton/mutantes/adn/domain/exceptions/*',
+					'com/periferia/hackaton/mutantes/adn/domain/entities/*',
 			]
 			limit {
 				minimum = 0.85

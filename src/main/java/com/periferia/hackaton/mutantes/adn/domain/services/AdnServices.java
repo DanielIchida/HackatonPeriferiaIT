@@ -11,8 +11,8 @@ import lombok.AllArgsConstructor;
 
 public class AdnServices {
 
-    private AdnRepository repository;
-    private SearchMutant searchMutant;
+    private final AdnRepository repository;
+    private final SearchMutant searchMutant;
 
     public AdnServices(AdnRepository adnRepository) {
         this.repository = adnRepository;
@@ -34,7 +34,7 @@ public class AdnServices {
         float ratio;
         int mutants = repository.countMutants(true);
         int humans = repository.countMutants(false);
-        ratio = mutants != 0 ? ((float) mutants /humans) : 0;
+        ratio = mutants != 0 ? ((float) mutants / humans) : 0;
         onResponseMutantStats.onCallback(humans,mutants,ratio);
     }
 

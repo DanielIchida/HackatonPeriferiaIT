@@ -23,7 +23,7 @@ public class StatisticsController extends BaseController{
         statisticsAdn.execute();
         statisticsDTO.setCountHumanDna(statisticsAdn.getCountHuman());
         statisticsDTO.setCountMutantDna(statisticsAdn.getCountMutant());
-        statisticsDTO.setRatio(statisticsAdn.getRatioMutant());
+        statisticsDTO.setRatio(statisticsAdn.getRatio());
         return oKMessage(statisticsDTO);
     }
 }
