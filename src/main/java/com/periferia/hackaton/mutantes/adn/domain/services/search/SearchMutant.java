@@ -10,7 +10,7 @@ public class SearchMutant {
         try {
             return callableResult.get();
         } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
+            Thread.currentThread().interrupt();
             return false;
         }
     }

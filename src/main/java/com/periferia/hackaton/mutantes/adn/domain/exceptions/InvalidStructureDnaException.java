@@ -1,4 +1,4 @@
-package com.periferia.hackaton.mutantes.adn.domain.execptions;
+package com.periferia.hackaton.mutantes.adn.domain.exceptions;
 
 public class InvalidStructureDnaException extends RuntimeException {
 

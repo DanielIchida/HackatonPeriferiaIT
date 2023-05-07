@@ -1,6 +1,6 @@
 package com.periferia.hackaton.mutantes.adn.infraestructure.rest.exceptions;
 
-import com.periferia.hackaton.mutantes.adn.domain.execptions.InvalidStructureDnaException;
+import com.periferia.hackaton.mutantes.adn.domain.exceptions.InvalidStructureDnaException;
 import com.periferia.hackaton.mutantes.adn.infraestructure.rest.dto.response.ResponseDTO;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

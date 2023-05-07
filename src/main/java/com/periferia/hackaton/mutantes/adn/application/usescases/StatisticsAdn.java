@@ -17,14 +17,14 @@ public class StatisticsAdn {
         this.adnServices = adnServices;
         this.countHuman = 0;
         this.countMutant = 0;
-        this.ratio = 0;
+        this.ratio = 0.0f;
     }
 
     public void execute() {
-        adnServices.statistics(((humans, mutants, ratio) -> {
+        adnServices.statistics(((humans, mutants, r) -> {
             setCountHuman(humans);
             setCountMutant(mutants);
-            setRatio(ratio);
+            setRatio(r);
         }));
     }
 }

@@ -1,6 +1,7 @@
 package com.periferia.hackaton.mutantes.adn.infraestructure.rest.controllers;
 
 import com.periferia.hackaton.mutantes.adn.application.usescases.StatisticsAdn;
+import com.periferia.hackaton.mutantes.adn.infraestructure.rest.dto.response.ResponseDTO;
 import com.periferia.hackaton.mutantes.adn.infraestructure.rest.dto.response.StatisticsDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class StatisticsController extends BaseController{
     }
 
     @GetMapping("/stats")
-    public ResponseEntity<?> status() {
+    public ResponseEntity<ResponseDTO> status() {
         StatisticsDTO statisticsDTO = new StatisticsDTO();
         statisticsAdn.execute();
         statisticsDTO.setCountHumanDna(statisticsAdn.getCountHuman());

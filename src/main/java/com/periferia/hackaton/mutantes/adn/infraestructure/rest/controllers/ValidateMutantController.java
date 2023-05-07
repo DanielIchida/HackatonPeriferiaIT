@@ -2,6 +2,7 @@ package com.periferia.hackaton.mutantes.adn.infraestructure.rest.controllers;
 
 import com.periferia.hackaton.mutantes.adn.application.usescases.SaveAdn;
 import com.periferia.hackaton.mutantes.adn.infraestructure.rest.dto.request.RequestAdn;
+import com.periferia.hackaton.mutantes.adn.infraestructure.rest.dto.response.ResponseDTO;
 import com.periferia.hackaton.mutantes.adn.infraestructure.rest.dto.response.ValidateAdnDTO;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class ValidateMutantController extends BaseController{
     }
 
     @PostMapping("/mutant")
-    public ResponseEntity<?> valid(@Valid @RequestBody RequestAdn requestAdn) {
+    public ResponseEntity<ResponseDTO> valid(@Valid @RequestBody RequestAdn requestAdn) {
         ValidateAdnDTO validateAdnDTO = new ValidateAdnDTO();
         saveAdn.execute(requestAdn.getDna());
         validateAdnDTO.setMutant(saveAdn.isValidateMutant());

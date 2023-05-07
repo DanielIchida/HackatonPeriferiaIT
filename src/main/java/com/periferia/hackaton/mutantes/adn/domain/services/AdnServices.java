@@ -7,7 +7,6 @@ import com.periferia.hackaton.mutantes.adn.domain.events.OnResponseMutantStats;
 import com.periferia.hackaton.mutantes.adn.domain.events.OnResponseMutantValidate;
 import com.periferia.hackaton.mutantes.adn.domain.services.search.SearchMutant;
 import com.periferia.hackaton.mutantes.adn.domain.services.validate.AdnValidate;
-import lombok.AllArgsConstructor;
 
 public class AdnServices {
 

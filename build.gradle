@@ -3,6 +3,7 @@ plugins {
 	id 'org.springframework.boot' version '3.0.6'
 	id 'io.spring.dependency-management' version '1.1.0'
 	id 'jacoco'
+	id("org.sonarqube") version "3.3"
 }
 
 group = 'com.periferia.hackaton.mutantes'
@@ -52,9 +53,9 @@ test {
 jacocoTestReport {
 	dependsOn test // tests are required to run before generating the report
 	reports {
-		xml.enabled = true
-		html.enabled = true
-		csv.enabled = true
+		xml.required = true
+		html.required = true
+		csv.required = true
 		html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
 	}
 	beforeEvaluate {
@@ -62,10 +63,42 @@ jacocoTestReport {
 			fileTree(dir: it, exclude: [
 					'com/periferia/hackaton/mutantes/adn/infraestructure/rest/dto/*.class',
 					'com/periferia/hackaton/mutantes/adn/infraestructure/config/*.class',
+					'com/periferia/hackaton/mutantes/adn/AdnApplication.class',
+					'com/periferia/hackaton/mutantes/adn/domain/events/*.class',
+					'com/periferia/hackaton/mutantes/adn/domain/exceptions/*.class',
+					'com/periferia/hackaton/mutantes/adn/domain/entities/*.class',
+					'com/periferia/hackaton/mutantes/adn/infraestructure/rest/dto/request/*.class',
+					'com/periferia/hackaton/mutantes/adn/infraestructure/rest/dto/response/*.class',
+					'com/periferia/hackaton/mutantes/adn/infraestructure/rest/exceptions/*.class',
+					'com/periferia/hackaton/mutantes/adn/infraestructure/config/*.class',
+					'com/periferia/hackaton/mutantes/adn/infraestructure/database/dao/*.class',
+					'com/periferia/hackaton/mutantes/adn/infraestructure/database/models/*.class'
 			])
 		}))
 	}
 }
+
+sonarqube {
+	properties {
+		property 'sonar.host.url', 'http://localhost:9000'
+        property 'sonar.login', 'sqa_738eff8bfc87bc4540366d67139fc6f63d56f602'
+		property 'sonar.coverage.exclusions' , [
+				"src/main/java/com/periferia/hackaton/mutantes/adn/infraestructure/rest/dto/**",
+				"src/main/java/com/periferia/hackaton/mutantes/adn/infraestructure/config/**",
+				"src/main/java/com/periferia/hackaton/mutantes/adn/AdnApplication.java",
+				"src/main/java/com/periferia/hackaton/mutantes/adn/domain/events/**",
+				"src/main/java/com/periferia/hackaton/mutantes/adn/domain/exceptions/**",
+				"src/main/java/com/periferia/hackaton/mutantes/adn/domain/entities/**",
+
+		]
+		property 'sonar.test.exclusions' , 'src/test/**/*.java'
+	}
+}
+
+tasks.named('sonarqube').configure {
+	dependsOn jacocoTestReport
+}
+
 
 jacoco {
 	toolVersion = "0.8.7"
@@ -86,7 +119,7 @@ jacocoTestCoverageVerification {
 					'com/periferia/hackaton/mutantes/adn/infraestructure/database/models/*',
 					'com/periferia/hackaton/mutantes/adn/domain/events/*',
 					'com/periferia/hackaton/mutantes/adn/domain/exceptions/*',
-					'com/periferia/hackaton/mutantes/adn/domain/entities/*',
+					'com/periferia/hackaton/mutantes/adn/domain/entities/*'
 			]
 			limit {
 				minimum = 0.85
