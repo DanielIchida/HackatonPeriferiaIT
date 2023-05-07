@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StatisticsController extends BaseController{
 
-    private StatisticsAdn statisticsAdn;
+    private final StatisticsAdn statisticsAdn;
 
     @Autowired
     public StatisticsController(StatisticsAdn statisticsAdn) {

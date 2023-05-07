@@ -1,4 +1,4 @@
-package com.periferia.hackaton.mutantes.adn.domain;
+package com.periferia.hackaton.mutantes.adn.domain.services;
 
 import com.google.gson.Gson;
 import com.periferia.hackaton.mutantes.adn.application.repository.AdnRepository;

@@ -1,6 +1,6 @@
 package com.periferia.hackaton.mutantes.adn.infraestructure.rest.dto.request;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 public class RequestAdn {
 
-    @NotBlank(message = "Debes ingresar una cadena DNA")
+    @NotNull(message = "Debes ingresar una cadena DNA")
     private String[] dna;
 
 }

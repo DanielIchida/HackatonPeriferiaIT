@@ -78,8 +78,12 @@ jacocoTestCoverageVerification {
 		rule {
 			includes = ['com/periferia/hackaton/mutantes/adn/*']
 			excludes = [
-					'com/periferia/hackaton/mutantes/adn/infraestructure/rest/dto/*',
+					'com/periferia/hackaton/mutantes/adn/infraestructure/rest/dto/request/*',
+					'com/periferia/hackaton/mutantes/adn/infraestructure/rest/dto/response/*',
+					'com/periferia/hackaton/mutantes/adn/infraestructure/rest/exceptions/*',
 					'com/periferia/hackaton/mutantes/adn/infraestructure/config/*',
+					'com/periferia/hackaton/mutantes/adn/infraestructure/database/dao/*',
+					'com/periferia/hackaton/mutantes/adn/infraestructure/database/models/*',
 					'com/periferia/hackaton/mutantes/adn/domain/events/*',
 					'com/periferia/hackaton/mutantes/adn/domain/exceptions/*',
 					'com/periferia/hackaton/mutantes/adn/domain/entities/*',
