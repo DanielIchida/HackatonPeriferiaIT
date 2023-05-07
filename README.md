@@ -16,7 +16,7 @@
 <p>4. Y si encuentra mas de 1 quiere decir que le dna es mutante</p>
 <h2>Nivel 2</h2>
 <p>(POST )https://mutantsdna.azurewebsites.net/adn/mutant</p>
-<P>(Request) {"dna" : ["ATGCAA","CAGTGC","TCATCT","AGACTG","TCGTCA","TCACTG"]}</P>
+<P>(Request) {"dna" : ["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]}</P>
 <p>(Response) {
     "message": "OK",
     "error": "",
