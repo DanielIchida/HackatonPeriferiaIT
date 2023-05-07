@@ -40,3 +40,7 @@
 <p>Se utiliza base de datos H2</p>
 <p>Test Sonar</p>
 <p>Se alcanzo un coverage del (86%)</p>
+
+![Sonar Qube](https://raw.githubusercontent.com/DanielIchida/HackatonPeriferiaIT/master/Sonar.png)
+
+<p><b>MutantsApi.postman_collection.json</b> Archivo postman para importar endpoints</p>
