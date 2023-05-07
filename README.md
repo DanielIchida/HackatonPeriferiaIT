@@ -36,7 +36,8 @@
         "ratio": 0.5
     }
 }</p>
-<p>Servicio publicado en Azure (https://dashboard.heroku.com/)</p>
+<p>Servicio publicado en Azure</p>
 <p>Se utiliza base de datos H2</p>
 <p>Test Sonar</p>
 <p>Se alcanzo un coverage del (86%)</p>
+![Sonar](https://github.com/DanielIchida/HackatonPeriferiaIT/blob/master/Sonar.png)
