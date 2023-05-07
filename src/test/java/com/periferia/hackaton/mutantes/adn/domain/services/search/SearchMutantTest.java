@@ -1,7 +1,5 @@
 package com.periferia.hackaton.mutantes.adn.domain.services.search;
 
-import com.periferia.hackaton.mutantes.adn.domain.entities.Adn;
-import com.periferia.hackaton.mutantes.adn.domain.services.validate.AdnValidate;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

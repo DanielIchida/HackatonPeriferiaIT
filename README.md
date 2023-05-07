@@ -14,6 +14,7 @@
 <p>2. Identifico que sean 4 letras seguidas por cada criterio de busqueda</p>
 <p>3. Sumo todas las posibilidades que se encontraron</p>
 <p>4. Y si encuentra mas de 1 quiere decir que le dna es mutante</p>
+<p>5. Y si encuentra mas de 1 quiere decir que le dna es mutante</p>
 <h2>Nivel 2</h2>
 <p>(POST )https://mutantsdna.azurewebsites.net/adn/mutant</p>
 <P>(Request) {"dna" : ["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]}</P>

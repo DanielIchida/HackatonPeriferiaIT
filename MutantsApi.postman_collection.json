@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "062fb78a-8450-4ae6-8025-853e6459ad2b",
+		"name": "MutantsApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "419824"
+	},
+	"item": [
+		{
+			"name": "Validate Mutant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dna\" : [\"ATGCGA\",\"CAGTGC\",\"TTATGT\",\"AGAAGG\",\"CCCCTA\",\"TCACTG\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mutantsdna.azurewebsites.net/adn/mutant",
+					"protocol": "https",
+					"host": [
+						"mutantsdna",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"adn",
+						"mutant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stadistics Mutants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mutantsdna.azurewebsites.net/adn/stats",
+					"protocol": "https",
+					"host": [
+						"mutantsdna",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"adn",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

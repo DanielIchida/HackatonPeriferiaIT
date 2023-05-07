@@ -5,28 +5,29 @@ import java.util.concurrent.*;
 public class SearchMutant {
 
     public boolean validateIsMutant(String[] dna){
-        ExecutorService executorService = Executors.newFixedThreadPool(100);
-        Future<Boolean> callableResult = executorService.submit(processIsMutant(dna));
+        ExecutorService executorService = Executors.newFixedThreadPool(20);
+        int sumMatches = 0;
         try {
-            return callableResult.get();
+            sumMatches = sumMatches + resultNumValidate(executorService,new SearchPositionHorizontal(dna,PositionEnum.LEFT));
+            sumMatches = sumMatches + resultNumValidate(executorService,new SearchPositionHorizontal(dna,PositionEnum.RIGHT));
+            sumMatches = sumMatches + resultNumValidate(executorService,new SearchPositionVertical(dna,PositionEnum.UP));
+            sumMatches = sumMatches + resultNumValidate(executorService,new SearchPositionVertical(dna,PositionEnum.DOWN));
+            sumMatches = sumMatches + resultNumValidate(executorService,new SearchPositionDiagonalUp(dna,PositionEnum.LEFT));
+            sumMatches = sumMatches + resultNumValidate(executorService,new SearchPositionDiagonalUp(dna,PositionEnum.RIGHT));
+            sumMatches = sumMatches + resultNumValidate(executorService,new SearchPositionDiagonalDown(dna,PositionEnum.LEFT));
+            sumMatches = sumMatches + resultNumValidate(executorService,new SearchPositionDiagonalDown(dna,PositionEnum.RIGHT));
+            return sumMatches > 1;
         } catch (InterruptedException | ExecutionException e) {
             Thread.currentThread().interrupt();
             return false;
         }
     }
 
-    private Callable<Boolean> processIsMutant(String[] dna) {
-        return () -> {
-            int sumMatches = 0;
-            sumMatches = sumMatches + new SearchPositionHorizontal(dna,PositionEnum.LEFT).numMatches();
-            sumMatches = sumMatches + new SearchPositionHorizontal(dna,PositionEnum.RIGHT).numMatches();
-            sumMatches = sumMatches + new SearchPositionVertical(dna,PositionEnum.UP).numMatches();
-            sumMatches = sumMatches + new SearchPositionVertical(dna,PositionEnum.DOWN).numMatches();
-            sumMatches = sumMatches + new SearchPositionDiagonalUp(dna,PositionEnum.LEFT).numMatches();
-            sumMatches = sumMatches + new SearchPositionDiagonalUp(dna,PositionEnum.RIGHT).numMatches();
-            sumMatches = sumMatches + new SearchPositionDiagonalDown(dna,PositionEnum.LEFT).numMatches();
-            sumMatches = sumMatches + new SearchPositionDiagonalDown(dna,PositionEnum.RIGHT).numMatches();
-            return sumMatches > 1;
-        };
+    private Callable<Integer> processNumValidate(SearchPosition searchPosition) {
+        return searchPosition::numMatches;
+    }
+
+    private int resultNumValidate(ExecutorService executorService,SearchPosition searchPosition) throws ExecutionException, InterruptedException {
+        return executorService.submit(processNumValidate(searchPosition)).get();
     }
 }
